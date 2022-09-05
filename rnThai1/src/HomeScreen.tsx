@@ -13,10 +13,13 @@ import {
 import React from 'react';
 import CMEntry from './Utils/CMEntry';
 import CMButton from './Utils/CMButton';
+import {useNavigation} from '@react-navigation/native';
 
 type Props = {};
 
 const HomeScreen = (props: Props) => {
+  const navigation = useNavigation();
+
   return (
     <ImageBackground
       style={{flex: 1}}
@@ -45,7 +48,7 @@ const HomeScreen = (props: Props) => {
         <CMButton
           title="Register"
           variant="outline"
-          onPress={() => Alert.alert('Register')}
+          onPress={() => navigation.navigate('Register')}
         />
       </View>
 
