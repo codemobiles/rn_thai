@@ -13,33 +13,40 @@ const HomeScreen = (props: Props) => {
       source={require('./assets/img/gradient_bg.png')}>
       <View
         style={{
-          height: 100,
           backgroundColor: '#FFF7',
           margin: 30,
           borderRadius: 15,
         }}>
-        {/* username name */}
-        <CMEntry />
+        {/* username  */}
+        <CMEntry hint="Username" icon="#F00" />
+        {/* password */}
+        <CMEntry hint="Password" icon="#FF0" />
       </View>
     </ImageBackground>
   );
 };
 
-const CMEntry = () => {
+const CMEntry = ({hint, icon}: any) => {
   return (
-    <View style={{flexDirection: 'row', padding: 16, alignItems: 'center'}}>
+    <View
+      style={{
+        flexDirection: 'row',
+        paddingHorizontal: 16,
+        paddingVertical: 8,
+        alignItems: 'center',
+      }}>
       {/* icon */}
       <View
         style={{
           height: 30,
           width: 30,
-          backgroundColor: '#F00',
+          backgroundColor: icon,
           borderRadius: 15,
         }}
       />
 
       <TextInput
-        placeholder="Username"
+        placeholder={hint}
         style={{
           flex: 1,
           borderWidth: 1,
