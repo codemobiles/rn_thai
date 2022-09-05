@@ -19,31 +19,37 @@ const HomeScreen = (props: Props) => {
           borderRadius: 15,
         }}>
         {/* username name */}
-        <View style={{flexDirection: 'row', padding: 16, alignItems: 'center'}}>
-          {/* icon */}
-          <View
-            style={{
-              height: 30,
-              width: 30,
-              backgroundColor: '#F00',
-              borderRadius: 15,
-            }}
-          />
-
-          <TextInput
-            placeholder="Username"
-            style={{
-              flex: 1,
-              borderWidth: 1,
-              borderColor: '#0004',
-              paddingLeft: 16,
-              marginLeft: 16,
-              borderRadius: 10,
-            }}
-          />
-        </View>
+        <CMEntry />
       </View>
     </ImageBackground>
+  );
+};
+
+const CMEntry = () => {
+  return (
+    <View style={{flexDirection: 'row', padding: 16, alignItems: 'center'}}>
+      {/* icon */}
+      <View
+        style={{
+          height: 30,
+          width: 30,
+          backgroundColor: '#F00',
+          borderRadius: 15,
+        }}
+      />
+
+      <TextInput
+        placeholder="Username"
+        style={{
+          flex: 1,
+          borderWidth: 1,
+          borderColor: '#0004',
+          paddingLeft: 16,
+          marginLeft: 16,
+          borderRadius: 10,
+        }}
+      />
+    </View>
   );
 };
 
