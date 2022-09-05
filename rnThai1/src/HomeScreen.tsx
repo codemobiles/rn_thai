@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
-import {View, Text, Image, ImageBackground} from 'react-native';
+import {View, Text, Image, ImageBackground, TextInput} from 'react-native';
 import React from 'react';
 
 type Props = {};
@@ -17,7 +17,22 @@ const HomeScreen = (props: Props) => {
           backgroundColor: '#FFF7',
           margin: 30,
           borderRadius: 15,
-        }}></View>
+        }}>
+        {/* username name */}
+        <View style={{flexDirection: 'row', padding: 16}}>
+          {/* icon */}
+          <View
+            style={{
+              height: 30,
+              width: 30,
+              backgroundColor: '#F00',
+              borderRadius: 15,
+            }}
+          />
+
+          <TextInput placeholder="Username" style={{flex: 1}} />
+        </View>
+      </View>
     </ImageBackground>
   );
 };
