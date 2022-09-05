@@ -1,6 +1,13 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
-import {View, Text, Image, ImageBackground, TextInput} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  ImageBackground,
+  TextInput,
+  TextInputProps,
+} from 'react-native';
 import React from 'react';
 
 type Props = {};
@@ -20,7 +27,7 @@ const HomeScreen = (props: Props) => {
         {/* username  */}
         <CMEntry hint="Username" />
         {/* password */}
-        <CMEntry hint="Password" icon="#FF0" />
+        <CMEntry hint="Password" icon="#FF0" secureTextEntry />
       </View>
     </ImageBackground>
   );
@@ -30,7 +37,7 @@ type CMEntryProp = {
   hint: string;
   icon?: string;
 };
-const CMEntry = ({hint, icon}: CMEntryProp) => {
+const CMEntry = ({hint, icon, ...rest}: CMEntryProp & TextInputProps) => {
   return (
     <View
       style={{
@@ -59,6 +66,7 @@ const CMEntry = ({hint, icon}: CMEntryProp) => {
           marginLeft: 16,
           borderRadius: 10,
         }}
+        {...rest}
       />
     </View>
   );
