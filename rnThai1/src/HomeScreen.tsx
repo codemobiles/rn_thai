@@ -9,7 +9,10 @@ const HomeScreen = (props: Props) => {
   return (
     <ImageBackground
       style={{flex: 1}}
-      source={require('./assets/img/gradient_bg.png')}></ImageBackground>
+      resizeMode="stretch"
+      source={require('./assets/img/gradient_bg.png')}>
+      <View style={{height: 100, backgroundColor: '#FFF'}}></View>
+    </ImageBackground>
   );
 };
 
