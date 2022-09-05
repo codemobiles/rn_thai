@@ -18,7 +18,7 @@ const HomeScreen = (props: Props) => {
           borderRadius: 15,
         }}>
         {/* username  */}
-        <CMEntry hint="Username" icon="#F00" />
+        <CMEntry hint="Username" />
         {/* password */}
         <CMEntry hint="Password" icon="#FF0" />
       </View>
@@ -26,7 +26,11 @@ const HomeScreen = (props: Props) => {
   );
 };
 
-const CMEntry = ({hint, icon}: any) => {
+type CMEntryProp = {
+  hint: string;
+  icon?: string;
+};
+const CMEntry = ({hint, icon}: CMEntryProp) => {
   return (
     <View
       style={{
@@ -40,7 +44,7 @@ const CMEntry = ({hint, icon}: any) => {
         style={{
           height: 30,
           width: 30,
-          backgroundColor: icon,
+          backgroundColor: icon ? icon : '#d3f',
           borderRadius: 15,
         }}
       />
