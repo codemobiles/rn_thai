@@ -25,6 +25,7 @@ const HomeScreen = (props: Props) => {
         style={{
           backgroundColor: '#FFF7',
           margin: 30,
+          padding: 20,
           borderRadius: 15,
         }}>
         {/* username  */}
