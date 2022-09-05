@@ -30,7 +30,17 @@ const HomeScreen = (props: Props) => {
             }}
           />
 
-          <TextInput placeholder="Username" style={{flex: 1}} />
+          <TextInput
+            placeholder="Username"
+            style={{
+              flex: 1,
+              borderWidth: 1,
+              borderColor: '#0004',
+              paddingLeft: 16,
+              marginLeft: 16,
+              borderRadius: 10,
+            }}
+          />
         </View>
       </View>
     </ImageBackground>
