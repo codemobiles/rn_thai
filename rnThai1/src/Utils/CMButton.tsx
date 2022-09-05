@@ -1,5 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
-import {View, Text, TouchableOpacity, ButtonProps} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ButtonProps,
+  Alert,
+  TouchableOpacityProps,
+} from 'react-native';
 import React from 'react';
 
 type Props = {
@@ -7,9 +14,10 @@ type Props = {
   variant: 'contained' | 'outline';
 };
 
-const CMButton = ({title, variant}: Props) => {
+const CMButton = ({title, variant, ...rest}: Props & TouchableOpacityProps) => {
   return (
     <TouchableOpacity
+      {...rest}
       activeOpacity={0.5}
       style={{
         height: 50,

@@ -8,6 +8,7 @@ import {
   TextInput,
   TextInputProps,
   Button,
+  Alert,
 } from 'react-native';
 import React from 'react';
 import CMEntry from './Utils/CMEntry';
@@ -34,10 +35,18 @@ const HomeScreen = (props: Props) => {
         <CMEntry hint="Password" icon="#FF0" secureTextEntry />
         <View style={{height: 8}} />
         {/* login button */}
-        <CMButton title="Login" variant="contained" />
+        <CMButton
+          title="Login"
+          variant="contained"
+          onPress={() => Alert.alert('Login')}
+        />
         <View style={{height: 8}} />
         {/* register button */}
-        <CMButton title="Register" variant="outline" />
+        <CMButton
+          title="Register"
+          variant="outline"
+          onPress={() => Alert.alert('Register')}
+        />
       </View>
     </ImageBackground>
   );
