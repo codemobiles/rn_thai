@@ -24,6 +24,10 @@ yarn add @react-native-community/async-storage axios react-native-iphone-x-helpe
 npx yarn add react-native-svg react-native-qrcode-svg react-native-camera react-native-qrcode-scanner
 npx yarn add @reduxjs/toolkit react-redux
 
+# fix error about camera 
+# by adding this in app/build.gradle
+missingDimensionStrategy 'react-native-camera', 'general'     
+
 # Icon Directory
 https://oblador.github.io/react-native-vector-icons/
 
