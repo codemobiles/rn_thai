@@ -6,7 +6,7 @@ type Props = {};
 
 const App = (props: Props) => {
   return (
-    <View>
+    <View style={{flex: 1}}>
       <HomeScreen />
     </View>
   );
