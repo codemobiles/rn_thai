@@ -11,7 +11,13 @@ const HomeScreen = (props: Props) => {
       style={{flex: 1}}
       resizeMode="stretch"
       source={require('./assets/img/gradient_bg.png')}>
-      <View style={{height: 100, backgroundColor: '#FFF'}}></View>
+      <View
+        style={{
+          height: 100,
+          backgroundColor: '#FFF7',
+          margin: 30,
+          borderRadius: 15,
+        }}></View>
     </ImageBackground>
   );
 };
