@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import CMEntry from './Utils/CMEntry';
+import CMButton from './Utils/CMButton';
 
 type Props = {};
 
@@ -31,6 +32,7 @@ const HomeScreen = (props: Props) => {
         {/* password */}
         <CMEntry hint="Password" icon="#FF0" secureTextEntry />
         {/* login button */}
+        <CMButton />
       </View>
     </ImageBackground>
   );
