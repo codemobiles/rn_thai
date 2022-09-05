@@ -48,6 +48,13 @@ const HomeScreen = (props: Props) => {
           onPress={() => Alert.alert('Register')}
         />
       </View>
+
+      {/* Banner */}
+      <Image
+        source={require('./assets/img/header_react_native.png')}
+        resizeMode="contain"
+        style={{height: 70, width: '100%'}}
+      />
     </ImageBackground>
   );
 };
