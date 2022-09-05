@@ -31,8 +31,12 @@ const HomeScreen = (props: Props) => {
         <CMEntry hint="Username" />
         {/* password */}
         <CMEntry hint="Password" icon="#FF0" secureTextEntry />
+        <View style={{height: 8}} />
         {/* login button */}
-        <CMButton />
+        <CMButton title="Login" variant="contained" />
+        <View style={{height: 8}} />
+        {/* register button */}
+        <CMButton title="Register" variant="outline" />
       </View>
     </ImageBackground>
   );
