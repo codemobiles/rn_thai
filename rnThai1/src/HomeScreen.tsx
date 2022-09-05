@@ -19,7 +19,7 @@ const HomeScreen = (props: Props) => {
           borderRadius: 15,
         }}>
         {/* username name */}
-        <View style={{flexDirection: 'row', padding: 16}}>
+        <View style={{flexDirection: 'row', padding: 16, alignItems: 'center'}}>
           {/* icon */}
           <View
             style={{
