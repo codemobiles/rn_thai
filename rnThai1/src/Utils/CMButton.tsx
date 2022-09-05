@@ -14,10 +14,15 @@ const CMButton = ({title, variant}: Props) => {
       style={{
         height: 50,
         backgroundColor: variant === 'contained' ? '#0099FA' : '#0000',
+        borderWidth: variant === 'contained' ? 0 : 1,
+        borderColor: '#0003',
+        borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <Text style={{color: 'white'}}>{title}</Text>
+      <Text style={{color: variant === 'contained' ? 'white' : 'black'}}>
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 };
