@@ -10,20 +10,24 @@ import {
   Button,
   Alert,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import CMEntry from './Utils/CMEntry';
 import CMButton from './Utils/CMButton';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from './RootNavigationParams';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {User} from './types/user.type';
 
 type Props = {};
 type ScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 const HomeScreen = (props: Props) => {
   const navigation = useNavigation<ScreenProp>();
-  let count = 0; // implicit declaration
+  // let count = 0; // implicit declaration
+  // const [count, setCount] = React.useState<number>(0);
+  const [count, setCount] = useState(0);
+  const [user, setUser] = useState<User>({username: '', password: ''});
 
   return (
     <ImageBackground
@@ -32,7 +36,8 @@ const HomeScreen = (props: Props) => {
       source={require('./assets/img/gradient_bg.png')}>
       <TouchableOpacity
         onPress={() => {
-          count = count + 1;
+          setCount(count + 1);
+          console.log(count.toString());
         }}>
         <Text>{'Count: ' + count}</Text>
       </TouchableOpacity>
@@ -47,7 +52,12 @@ const HomeScreen = (props: Props) => {
         {/* username  */}
         <CMEntry hint="Username" />
         {/* password */}
-        <CMEntry hint="Password" color="#FF0" secureTextEntry />
+        <CMEntry
+          hint="Password"
+          color="#FF0"
+          secureTextEntry
+          onChangeText={text => console.log(text)}
+        />
         <View style={{height: 8}} />
         {/* login button */}
         <CMButton
