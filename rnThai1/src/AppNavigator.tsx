@@ -22,7 +22,11 @@ const SuccessTab = () => (
 
 const RootStack = () => (
   <Stack.Navigator initialRouteName="Home">
-    <Stack.Screen name="Home" component={HomeScreen} />
+    <Stack.Screen
+      name="Home"
+      component={HomeScreen}
+      options={{headerStyle: {backgroundColor: '#F00'}}}
+    />
     <Stack.Screen name="Register" component={RegisterScreen} />
     <Stack.Screen name="Success" component={SuccessTab} />
   </Stack.Navigator>
