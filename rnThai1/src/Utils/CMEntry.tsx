@@ -22,17 +22,19 @@ const CMEntry = ({
         paddingVertical: 8,
         alignItems: 'center',
       }}>
-      <Icon name="user" size={30} />
+      {icon && <Icon name={icon} size={30} />}
 
       {/* icon */}
-      <View
-        style={{
-          height: 30,
-          width: 30,
-          backgroundColor: color ? color : '#d3f',
-          borderRadius: 15,
-        }}
-      />
+      {!icon && (
+        <View
+          style={{
+            height: 30,
+            width: 30,
+            backgroundColor: color ? color : '#d3f',
+            borderRadius: 15,
+          }}
+        />
+      )}
 
       <TextInput
         placeholder={hint}
