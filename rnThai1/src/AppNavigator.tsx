@@ -6,14 +6,17 @@ import HomeScreen from './HomeScreen';
 import RegisterScreen from './RegisterScreen';
 import JSONFeedScreen from './JSONFeedScreen';
 import CameraScreen from './CameraScreen';
+import {RootStackParamList, RootTabParamList} from './RootNavigationParams';
+import ExtraScreen from './ExtraScreen';
 
-const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<RootTabParamList>();
 
 const SuccessTab = () => (
   <Tab.Navigator initialRouteName="Json">
     <Tab.Screen name="Json" component={JSONFeedScreen} />
     <Tab.Screen name="Camera" component={CameraScreen} />
+    <Tab.Screen name="Extra" component={ExtraScreen} />
   </Tab.Navigator>
 );
 

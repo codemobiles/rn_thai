@@ -7,4 +7,5 @@ export type RootStackParamList = {
 export type RootTabParamList = {
   Json: undefined;
   Camera: undefined;
+  Extra: undefined;
 };
