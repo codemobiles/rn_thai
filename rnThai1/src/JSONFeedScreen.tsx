@@ -14,6 +14,16 @@ const JSONFeedScreen = (props: Props) => {
     dispatch(loadData());
   }, [dispatch]);
 
+  React.useEffect(() => {
+    // created
+    console.log('on created');
+
+    // destroy
+    return () => {
+      console.log('on destroy');
+    };
+  }, []);
+
   return (
     <View style={{flex: 1}}>
       <FlatList
