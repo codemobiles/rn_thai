@@ -13,9 +13,13 @@ const JSONFeedScreen = (props: Props) => {
     console.log('JSONScreen is created');
   }, []);
 
-  const loadData = () => {
+  const loadData = async () => {
     const url =
       'https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=songs';
+
+    // Thread
+    const result = await axios.get(url);
+    setDataArray(result.data.youtubes);
   };
 
   return (
