@@ -3,12 +3,12 @@ import {useDispatch} from 'react-redux';
 
 import jsonReducer from './slices/json.slice';
 import authReducer from './slices/auth.slice';
-import cameraReducer from './slices/camera.slice';
+// import cameraReducer from './slices/camera.slice';
 
 const reducer = {
   jsonReducer,
   authReducer,
-  cameraReducer,
+  //   cameraReducer,
 };
 
 export const store = configureStore({
