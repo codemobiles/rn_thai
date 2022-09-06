@@ -7,8 +7,6 @@ import {FlatList} from 'react-native-gesture-handler';
 type Props = {};
 
 const JSONFeedScreen = (props: Props) => {
-  const courses = ['java', 'flutter', 'angular', 'react'];
-  const [dataArray, setDataArray] = React.useState<Youtube[]>([]);
 
   React.useEffect(() => {
     loadData();

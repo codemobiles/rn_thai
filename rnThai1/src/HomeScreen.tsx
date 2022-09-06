@@ -20,7 +20,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {User} from './types/user.type';
 import {useSelector} from 'react-redux';
 import {RootState, useAppDispatch} from './store/store';
-import {add, authSelector} from './store/slices/auth.slice';
+import {add, authSelector, reset} from './store/slices/auth.slice';
 
 type Props = {};
 type ScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
@@ -41,6 +41,7 @@ const HomeScreen = (props: Props) => {
       <TouchableOpacity onPress={() => dispatch(add())}>
         <Text>{'Count: ' + authReducer.count}</Text>
       </TouchableOpacity>
+      <Button title="reset" onPress={() => dispatch(reset(-1))} />
 
       <View
         style={{
