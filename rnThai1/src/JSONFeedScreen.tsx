@@ -1,32 +1,24 @@
 import {View, Text} from 'react-native';
 import React from 'react';
-import axios from 'axios';
-import YoutubeResponse, {Youtube} from './types/youtube.type';
 import {FlatList} from 'react-native-gesture-handler';
+import {useSelector} from 'react-redux';
+import {jsonSelector, loadData} from './store/slices/json.slice';
+import {useAppDispatch} from './store/store';
 
 type Props = {};
 
 const JSONFeedScreen = (props: Props) => {
-
+  const jsonReducer = useSelector(jsonSelector);
+  const dispatch = useAppDispatch();
   React.useEffect(() => {
-    loadData();
-    console.log('JSONScreen is created');
-  }, []);
-
-  const loadData = async () => {
-    const url =
-      'https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=songs';
-
-    // Thread
-    const result = await axios.get<YoutubeResponse>(url);
-    setDataArray(result.data.youtubes);
-  };
+    dispatch(loadData());
+  }, [dispatch]);
 
   return (
     <View style={{flex: 1}}>
       <FlatList
         style={{flex: 1}}
-        data={dataArray}
+        data={jsonReducer.dataArray}
         keyExtractor={item => item.id}
         renderItem={({item, index}) => (
           <Text>{`${index + 1}. ${item.title}`}</Text>

@@ -2,6 +2,7 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import YoutubeResponse, {Youtube} from '../../types/youtube.type';
 import axios from 'axios';
+import {RootState} from '../store';
 
 type jsonState = {
   dataArray: Youtube[];
@@ -33,4 +34,5 @@ const jsonSlice = createSlice({
   },
 });
 
+export const jsonSelector = (state: RootState) => state.jsonReducer;
 export default jsonSlice.reducer;
