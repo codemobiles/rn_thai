@@ -16,18 +16,22 @@ import CMButton from './Utils/CMButton';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from './RootNavigationParams';
+import {useSelector} from 'react-redux';
+import {authSelector} from './store/slices/auth.slice';
 
 type Props = {};
 type ScreenProp = StackNavigationProp<RootStackParamList, 'Register'>;
 
 const RegisterScreen = (props: Props) => {
   const navigation = useNavigation<ScreenProp>();
+  const authReducer = useSelector(authSelector);
 
   return (
     <ImageBackground
       style={{flex: 1}}
       resizeMode="stretch"
       source={require('./assets/img/gradient_bg.png')}>
+      <Text>Count: {authReducer.count.toString()}</Text>
       <View
         style={{
           backgroundColor: '#FFF7',

@@ -20,6 +20,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {User} from './types/user.type';
 import {useSelector} from 'react-redux';
 import {RootState} from './store/store';
+import {authSelector} from './store/slices/auth.slice';
 
 type Props = {};
 type ScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
@@ -28,7 +29,7 @@ const HomeScreen = (props: Props) => {
   const navigation = useNavigation<ScreenProp>();
   // let count = 0; // implicit declaration
   // const [count, setCount] = React.useState<number>(0);
-  const authReducer = useSelector((state: RootState) => state.authReducer);
+  const authReducer = useSelector(authSelector);
   const [user, setUser] = useState<User>({username: '', password: ''});
 
   return (
