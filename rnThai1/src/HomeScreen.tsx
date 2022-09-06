@@ -50,14 +50,18 @@ const HomeScreen = (props: Props) => {
           borderRadius: 15,
         }}>
         {/* username  */}
-        <CMEntry hint="Username" />
+        <CMEntry
+          hint="Username"
+          onChangeText={text => setUser({...user, username: text})}
+        />
         {/* password */}
         <CMEntry
           hint="Password"
           color="#FF0"
           secureTextEntry
-          onChangeText={text => console.log(text)}
+          onChangeText={text => setUser({...user, password: text})}
         />
+        <Text>{JSON.stringify(user)}</Text>
         <View style={{height: 8}} />
         {/* login button */}
         <CMButton
