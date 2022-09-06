@@ -16,18 +16,27 @@ import CMButton from './Utils/CMButton';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from './RootNavigationParams';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 type Props = {};
 type ScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 const HomeScreen = (props: Props) => {
   const navigation = useNavigation<ScreenProp>();
+  let count = 0; // implicit declaration
 
   return (
     <ImageBackground
       style={{flex: 1}}
       resizeMode="stretch"
       source={require('./assets/img/gradient_bg.png')}>
+      <TouchableOpacity
+        onPress={() => {
+          count = count + 1;
+        }}>
+        <Text>{'Count: ' + count}</Text>
+      </TouchableOpacity>
+
       <View
         style={{
           backgroundColor: '#FFF7',
