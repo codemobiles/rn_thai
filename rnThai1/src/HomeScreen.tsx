@@ -14,11 +14,14 @@ import React from 'react';
 import CMEntry from './Utils/CMEntry';
 import CMButton from './Utils/CMButton';
 import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from './RootNavigationParams';
 
 type Props = {};
+type ScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 const HomeScreen = (props: Props) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<ScreenProp>();
 
   return (
     <ImageBackground
