@@ -2,6 +2,7 @@ import {View, Text} from 'react-native';
 import React from 'react';
 import axios from 'axios';
 import YoutubeResponse, {Youtube} from './types/youtube.type';
+import {FlatList} from 'react-native-gesture-handler';
 
 type Props = {};
 
@@ -24,12 +25,15 @@ const JSONFeedScreen = (props: Props) => {
   };
 
   return (
-    <View>
-      {dataArray.map(item => (
-        <Text style={{fontSize: 20}} key={item.id}>
-          {item.title}
-        </Text>
-      ))}
+    <View style={{flex: 1}}>
+      <FlatList
+        style={{flex: 1}}
+        data={dataArray}
+        keyExtractor={item => item.id}
+        renderItem={({item, index}) => (
+          <Text>{`${index + 1}. ${item.title}`}</Text>
+        )}
+      />
     </View>
   );
 };
