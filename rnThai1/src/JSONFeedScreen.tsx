@@ -1,6 +1,7 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 import axios from 'axios';
+import YoutubeResponse, {Youtube} from './types/youtube.type';
 
 type Props = {};
 
@@ -18,7 +19,7 @@ const JSONFeedScreen = (props: Props) => {
       'https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=songs';
 
     // Thread
-    const result = await axios.get(url);
+    const result = await axios.get<>(url);
     setDataArray(result.data.youtubes);
   };
 
