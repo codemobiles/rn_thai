@@ -1,12 +1,19 @@
 /* eslint-disable react-native/no-inline-styles */
 import {View, TextInput, TextInputProps} from 'react-native';
 import React from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 type CMEntryProp = {
   hint: string;
   icon?: string;
+  color?: string;
 };
-const CMEntry = ({hint, icon, ...rest}: CMEntryProp & TextInputProps) => {
+const CMEntry = ({
+  hint,
+  icon,
+  color,
+  ...rest
+}: CMEntryProp & TextInputProps) => {
   return (
     <View
       style={{
@@ -15,12 +22,14 @@ const CMEntry = ({hint, icon, ...rest}: CMEntryProp & TextInputProps) => {
         paddingVertical: 8,
         alignItems: 'center',
       }}>
+      <Icon name="user" size={30} />
+
       {/* icon */}
       <View
         style={{
           height: 30,
           width: 30,
-          backgroundColor: icon ? icon : '#d3f',
+          backgroundColor: color ? color : '#d3f',
           borderRadius: 15,
         }}
       />
