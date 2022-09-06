@@ -9,6 +9,14 @@ import CameraScreen from './CameraScreen';
 import {RootStackParamList, RootTabParamList} from './RootNavigationParams';
 import ExtraScreen from './ExtraScreen';
 
+const defaultOptions = {
+  headerStyle: {
+    backgroundColor: '#119CED',
+  },
+  headerTintColor: '#FFFFFF',
+  headerTitleStyle: {color: '#fff'},
+};
+
 const Stack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
@@ -22,13 +30,17 @@ const SuccessTab = () => (
 
 const RootStack = () => (
   <Stack.Navigator initialRouteName="Home">
+    <Stack.Screen name="Home" component={HomeScreen} options={defaultOptions} />
     <Stack.Screen
-      name="Home"
-      component={HomeScreen}
-      options={{headerStyle: {backgroundColor: '#F00'}}}
+      name="Register"
+      component={RegisterScreen}
+      options={defaultOptions}
     />
-    <Stack.Screen name="Register" component={RegisterScreen} />
-    <Stack.Screen name="Success" component={SuccessTab} />
+    <Stack.Screen
+      name="Success"
+      component={SuccessTab}
+      options={defaultOptions}
+    />
   </Stack.Navigator>
 );
 
