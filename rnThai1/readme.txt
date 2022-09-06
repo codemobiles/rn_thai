@@ -12,8 +12,6 @@ https://www.youtube.com/watch?v=YRxTETeWJzA
 # systemProp.https.proxyPort=8118
 
 
-Ho
-
 npm i -g yarn
 
 # common steps

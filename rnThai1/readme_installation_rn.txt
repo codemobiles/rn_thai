@@ -21,10 +21,21 @@ code --install-extension diemasmichiels.emulate
   - Find the Gradle (Built-tool) setting
   - Find Gradle JDK and download 11
   - Set JAVA_HOME to Jdk folder in the android studio
+  
 - ANDROID_HOME
 - JAVA_HOME
 - PATH TO ANDROID_HOME emulator
 - PATH TO Java bin
+
+or using this in package.json
+
+"scripts": {
+    "android": "export JAVA_HOME='/opt/homebrew/Cellar/openjdk@11/11.0.10/libexec/openjdk.jdk/Contents/Home' && export ANDROID_HOME='/Users/chaiyasittayabovorn/Library/Android/sdk/' && react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  },
 
 
 setx path "%path%;______ " /m
