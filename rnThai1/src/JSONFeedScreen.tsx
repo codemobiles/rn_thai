@@ -9,15 +9,13 @@ const JSONFeedScreen = (props: Props) => {
   const [dataArray, setDataArray] = React.useState<any[]>([]);
 
   React.useEffect(() => {
+    loadData();
     console.log('JSONScreen is created');
-    // loadData();
   }, []);
 
-  const loadData = async () => {
+  const loadData = () => {
     const url =
       'https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=songs';
-    const result = await axios.get(url);
-    setDataArray(result.data.youtubes);
   };
 
   return (
