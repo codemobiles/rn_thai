@@ -7,7 +7,7 @@ type Props = {};
 
 const JSONFeedScreen = (props: Props) => {
   const courses = ['java', 'flutter', 'angular', 'react'];
-  const [dataArray, setDataArray] = React.useState<any[]>([]);
+  const [dataArray, setDataArray] = React.useState<Youtube[]>([]);
 
   React.useEffect(() => {
     loadData();
@@ -19,7 +19,7 @@ const JSONFeedScreen = (props: Props) => {
       'https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=songs';
 
     // Thread
-    const result = await axios.get<>(url);
+    const result = await axios.get<YoutubeResponse>(url);
     setDataArray(result.data.youtubes);
   };
 
