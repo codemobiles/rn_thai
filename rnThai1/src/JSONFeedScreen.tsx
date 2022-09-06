@@ -29,11 +29,6 @@ const JSONFeedScreen = (props: Props) => {
           {item.title}
         </Text>
       ))}
-      {/* {courses.map(item => (
-        <Text style={{fontSize: 70}} key={item}>
-          {item}
-        </Text>
-      ))} */}
     </View>
   );
 };
