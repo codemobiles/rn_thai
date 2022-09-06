@@ -18,6 +18,8 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from './RootNavigationParams';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {User} from './types/user.type';
+import {useSelector} from 'react-redux';
+import {RootState} from './store/store';
 
 type Props = {};
 type ScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
@@ -26,7 +28,7 @@ const HomeScreen = (props: Props) => {
   const navigation = useNavigation<ScreenProp>();
   // let count = 0; // implicit declaration
   // const [count, setCount] = React.useState<number>(0);
-  const [count, setCount] = useState(0);
+  const authReducer = useSelector((state: RootState) => state.authReducer);
   const [user, setUser] = useState<User>({username: '', password: ''});
 
   return (
@@ -34,12 +36,8 @@ const HomeScreen = (props: Props) => {
       style={{flex: 1}}
       resizeMode="stretch"
       source={require('./assets/img/gradient_bg.png')}>
-      <TouchableOpacity
-        onPress={() => {
-          setCount(count + 1);
-          console.log(count.toString());
-        }}>
-        <Text>{'Count: ' + count}</Text>
+      <TouchableOpacity onPress={() => {}}>
+        <Text>{'Count: ' + authReducer.count}</Text>
       </TouchableOpacity>
 
       <View
