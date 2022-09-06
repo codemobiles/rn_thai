@@ -19,8 +19,8 @@ import {RootStackParamList} from './RootNavigationParams';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {User} from './types/user.type';
 import {useSelector} from 'react-redux';
-import {RootState} from './store/store';
-import {authSelector} from './store/slices/auth.slice';
+import {RootState, useAppDispatch} from './store/store';
+import {add, authSelector} from './store/slices/auth.slice';
 
 type Props = {};
 type ScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
@@ -30,6 +30,7 @@ const HomeScreen = (props: Props) => {
   // let count = 0; // implicit declaration
   // const [count, setCount] = React.useState<number>(0);
   const authReducer = useSelector(authSelector);
+  const dispatch = useAppDispatch();
   const [user, setUser] = useState<User>({username: '', password: ''});
 
   return (
@@ -37,7 +38,7 @@ const HomeScreen = (props: Props) => {
       style={{flex: 1}}
       resizeMode="stretch"
       source={require('./assets/img/gradient_bg.png')}>
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity onPress={() => dispatch(add())}>
         <Text>{'Count: ' + authReducer.count}</Text>
       </TouchableOpacity>
 
