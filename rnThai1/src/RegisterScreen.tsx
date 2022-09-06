@@ -36,9 +36,9 @@ const RegisterScreen = (props: Props) => {
           borderRadius: 15,
         }}>
         {/* username  */}
-        <CMEntry hint="Username" />
+        <CMEntry hint="Username" icon="user" />
         {/* password */}
-        <CMEntry hint="Password" color="#FF0" secureTextEntry />
+        <CMEntry hint="Password" icon="lock" secureTextEntry />
         <View style={{height: 8}} />
         {/* login button */}
         <CMButton
