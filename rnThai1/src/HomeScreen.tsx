@@ -41,7 +41,7 @@ const HomeScreen = (props: Props) => {
         <CMButton
           title="Login"
           variant="contained"
-          onPress={() => Alert.alert('Login')}
+          onPress={() => navigation.navigate('Success')}
         />
         <View style={{height: 8}} />
         {/* register button */}
