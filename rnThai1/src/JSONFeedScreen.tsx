@@ -4,6 +4,7 @@ import {FlatList} from 'react-native-gesture-handler';
 import {useSelector} from 'react-redux';
 import {jsonSelector, loadData} from './store/slices/json.slice';
 import {useAppDispatch} from './store/store';
+import {Youtube} from './types/youtube.type';
 
 type Props = {};
 
@@ -30,22 +31,25 @@ const JSONFeedScreen = (props: Props) => {
       resizeMode="stretch"
       source={require('./assets/img/gradient_bg.png')}>
       <FlatList
-        ListHeaderComponent={() => (
-          <Text style={{fontSize: 50}}>I am Header</Text>
-        )}
+        ListHeaderComponent={() => renderHeader()}
         style={{flex: 1}}
         data={jsonReducer.dataArray}
         keyExtractor={item => item.id}
-        renderItem={({item, index}) => (
-          <Text
-            style={{fontSize: 30, margin: 10, backgroundColor: 'white'}}>{`${
-            index + 1
-          }. ${item.title}`}</Text>
-        )}
+        renderItem={renderRow}
       />
     </ImageBackground>
   );
 };
+
+type renderRowProp = {
+  item: Youtube;
+  index: number;
+};
+const renderRow = ({item, index}: renderRowProp) => (
+  <Text style={{fontSize: 30, margin: 10, backgroundColor: 'white'}}>{`${
+    index + 1
+  }. ${item.title}`}</Text>
+);
 
 export default JSONFeedScreen;
 
