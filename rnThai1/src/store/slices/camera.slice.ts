@@ -11,6 +11,32 @@ export type cameraState = {
 const defaultState: cameraState = {
   image: null,
 };
+
+export const handleUpload = createAsyncThunk('camera/handleUpload', () => {
+  const image = store.getState().cameraReducer.image;
+  const uriParts = image.uri.split('.');
+  const fileType = uriParts[uriParts.length - 1];
+
+  const data = new FormData();
+  data.append('username', 'codemobiles'); // you can append anyone.
+  data.append('password', '1234'); // you can append anyone.
+  data.append('userfile', {
+    uri: Platform.OS === 'ios' ? image.uri.replace('file://', '') : image.uri,
+    type: `image/${fileType}`, // or photo.type
+    name: 'testPhotoName.jpg',
+  });
+
+  try {
+    let result = await axios.post('http://192.168.11.197:3000/uploads', data, {
+      headers: {'Content-Type': 'multipart/form-data'},
+    });
+    console.log(JSON.stringify(result.data));
+    Alert.alert(JSON.stringify(result.data));
+  } catch (e) {
+    console.error(e);
+  }
+});
+
 export const handleCamera = createAsyncThunk(
   'camera/handleCamera',
   async (cropIt: boolean) => {
@@ -69,4 +95,5 @@ const cameraSlice = createSlice({
   },
 });
 
+export const cameraSelector = (state: RootState) => state.cameraReducer;
 export default cameraSlice.reducer;

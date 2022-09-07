@@ -9,9 +9,9 @@ import {
 } from 'react-native';
 
 import {StackNavigationProp} from '@react-navigation/stack';
-import {useAppDispatch} from './store/store';
+import {RootState, useAppDispatch} from './store/store';
 import {useSelector} from 'react-redux';
-import {handleCamera, handleGallery} from './store/slices/camera.slice';
+import {cameraSelector, handleCamera, handleGallery} from './store/slices/camera.slice';
 
 type RootStackParamList = {
   CameraScreen: {profileId: number; name: string};
@@ -28,7 +28,8 @@ interface CameraScreenProps {
 
 const CameraScreen: React.FC<CameraScreenProps> = () => {
   const dispatch = useAppDispatch();
-  const cameraReducer = useSelector(state => state.cameraReducer);
+  // const imageReducer = useSelector(({cameraReducer}: RootState) => cameraReducer);
+  const cameraReducer = useSelector(cameraSelector);
 
   return (
     <ImageBackground
