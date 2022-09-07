@@ -13,7 +13,7 @@ import {
 import React, {useState} from 'react';
 import CMEntry from './Utils/CMEntry';
 import CMButton from './Utils/CMButton';
-import {useNavigation} from '@react-navigation/native';
+import {StackActions, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from './RootNavigationParams';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -71,9 +71,14 @@ const HomeScreen = (props: Props) => {
           onPress={async () => {
             const result = await dispatch(login(user));
             if (login.fulfilled.match(result)) {
-              navigation.navigate('Success');
+              // navigation.navigate('Success');
+              navigation.dispatch(
+                StackActions.replace('Success', {
+                  screen: 'Json',
+                }),
+              );
             } else {
-              Alert.alert(authReducer.errorMsg!);
+              Alert.alert(authReducer.errorMsg ?? 'Unknow error');
             }
           }}
         />
