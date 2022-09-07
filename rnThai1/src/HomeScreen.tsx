@@ -68,8 +68,13 @@ const HomeScreen = (props: Props) => {
         <CMButton
           title="Login"
           variant="contained"
-          onPress={() => {
-            dispatch(login(user));
+          onPress={async () => {
+            const result = await dispatch(login(user));
+            if (login.fulfilled.match(result)) {
+              navigation.navigate('Success');
+            } else {
+              Alert.alert(authReducer.errorMsg!);
+            }
           }}
         />
         <View style={{height: 8}} />
