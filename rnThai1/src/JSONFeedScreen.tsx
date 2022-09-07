@@ -31,13 +31,16 @@ const JSONFeedScreen = (props: Props) => {
       source={require('./assets/img/gradient_bg.png')}>
       <FlatList
         ListHeaderComponent={() => (
-          <Text style={{fontSize: 30}}>I am Header</Text>
+          <Text style={{fontSize: 50}}>I am Header</Text>
         )}
         style={{flex: 1}}
         data={jsonReducer.dataArray}
         keyExtractor={item => item.id}
         renderItem={({item, index}) => (
-          <Text>{`${index + 1}. ${item.title}`}</Text>
+          <Text
+            style={{fontSize: 30, margin: 10, backgroundColor: 'white'}}>{`${
+            index + 1
+          }. ${item.title}`}</Text>
         )}
       />
     </ImageBackground>
