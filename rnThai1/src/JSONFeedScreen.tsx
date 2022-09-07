@@ -1,4 +1,4 @@
-import {View, Text, ImageBackground} from 'react-native';
+import {View, Text, ImageBackground, Image} from 'react-native';
 import React from 'react';
 import {FlatList} from 'react-native-gesture-handler';
 import {useSelector} from 'react-redux';
@@ -48,3 +48,14 @@ const JSONFeedScreen = (props: Props) => {
 };
 
 export default JSONFeedScreen;
+
+const renderHeader = () => (
+  <View style={{alignItems: 'center'}}>
+    {/* <Text style={{color: '#FFF'}}>{route.params?.username}</Text> */}
+    <Image
+      source={require('./assets/img/header_react_native.png')}
+      resizeMode="contain"
+      style={{height: 100, width: '100%'}}
+    />
+  </View>
+);
