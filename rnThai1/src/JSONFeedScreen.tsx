@@ -70,9 +70,13 @@ const renderRow = ({item, index}: renderRowProp) => (
         style={{height: 50, width: 50, borderRadius: 25}}
       />
       {/* title and subtitle */}
-      <View>
-        <Text>{item.title}</Text>
-        <Text>{item.subtitle}</Text>
+      <View style={{flex: 1, marginLeft: 16}}>
+        <Text numberOfLines={1} ellipsizeMode="tail">
+          {item.title}
+        </Text>
+        <Text numberOfLines={1} ellipsizeMode="tail">
+          {item.subtitle}
+        </Text>
       </View>
     </View>
   </TouchableOpacity>
