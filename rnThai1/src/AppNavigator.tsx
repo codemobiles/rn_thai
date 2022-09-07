@@ -12,6 +12,7 @@ import CameraScreen from './CameraScreen';
 import {RootStackParamList, RootTabParamList} from './RootNavigationParams';
 import ExtraScreen from './ExtraScreen';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const defaultOptions = {
   headerStyle: {
@@ -48,8 +49,9 @@ const SuccessTab = () => (
 
 type RootStackProp = {
   isAuthened: boolean;
+  onSignOut: () => void;
 };
-const RootStack = ({isAuthened}: RootStackProp) => (
+const RootStack = ({isAuthened, onSignOut}: RootStackProp) => (
   <Stack.Navigator initialRouteName={isAuthened ? 'Success' : 'Home'}>
     <Stack.Screen name="Home" component={HomeScreen} options={defaultOptions} />
     <Stack.Screen
@@ -60,7 +62,19 @@ const RootStack = ({isAuthened}: RootStackProp) => (
     <Stack.Screen
       name="Success"
       component={SuccessTab}
-      options={defaultOptions}
+      options={{
+        ...defaultOptions,
+        headerRight: () => (
+          <TouchableOpacity onPress={onSignOut}>
+            <Icon
+              name="sign-out"
+              size={30}
+              color="#FFF"
+              style={{marginRight: 16}}
+            />
+          </TouchableOpacity>
+        ),
+      }}
     />
   </Stack.Navigator>
 );

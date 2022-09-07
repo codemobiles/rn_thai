@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import AsyncStorage from '@react-native-community/async-storage';
-import {useNavigation} from '@react-navigation/native';
+import {StackActions, useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {View} from 'react-native';
+import {Alert, View} from 'react-native';
 
 import AppNavigator from './src/AppNavigator';
 import {kAUTHEN_SUCCESS, kYES} from './src/Constants';
@@ -36,7 +36,18 @@ const App = (props: Props) => {
 
   return (
     <View style={{flex: 1}}>
-      <AppNavigator isAuthened={isAuthened} />
+      <AppNavigator
+        isAuthened={isAuthened}
+        onSignOut={async () => {
+          await AsyncStorage.clear();
+          Alert.alert('Signout');
+          navigation.dispatch(
+            StackActions.replace('Home', {
+              screen: 'Success',
+            }),
+          );
+        }}
+      />
     </View>
   );
 };
