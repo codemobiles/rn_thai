@@ -28,6 +28,7 @@ interface CameraScreenProps {
 
 const CameraScreen: React.FC<CameraScreenProps> = () => {
   const dispatch = useAppDispatch();
+  const cameraReducer = useSelector(state => state.cameraReducer);
 
   return (
     <ImageBackground
@@ -57,14 +58,14 @@ const CameraScreen: React.FC<CameraScreenProps> = () => {
 
         {/* GALLERY + CROP*/}
         <TouchableOpacity
-          onPress={() => dispatch(handleGallery())}
+          onPress={() => dispatch(handleGallery(true))}
           style={styles.button}>
           <Text style={styles.text}>GALLERY</Text>
         </TouchableOpacity>
       </View>
 
       {/* ternery condtion */}
-      {false && (
+      {cameraReducer.image && (
         <>
           <Image
             source={cameraReducer.image}
