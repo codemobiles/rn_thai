@@ -63,7 +63,9 @@ const RegisterScreen = (props: Props) => {
         <CMButton
           title="Register"
           variant="contained"
-          onPress={() => navigation.goBack()}
+          onPress={() => {
+            Alert.alert(JSON.stringify(user));
+          }}
         />
         <View style={{height: 8}} />
         {/* register button */}

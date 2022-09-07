@@ -69,8 +69,7 @@ const HomeScreen = (props: Props) => {
           title="Login"
           variant="contained"
           onPress={() => {
-            // Alert.alert(JSON.stringify(user));
-            navigation.navigate('Success');
+            Alert.alert(JSON.stringify(user));
           }}
         />
         <View style={{height: 8}} />

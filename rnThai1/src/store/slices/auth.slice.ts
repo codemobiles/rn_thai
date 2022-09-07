@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {Alert} from 'react-native';
+import {User} from '../../types/user.type';
 import {RootState} from '../store';
 
 type authState = {
@@ -9,6 +11,17 @@ type authState = {
 const defaultState: authState = {
   count: 0,
 };
+
+export const register = createAsyncThunk(
+  'auth/register',
+  async (user: User) => {
+    Alert.alert(JSON.stringify(user));
+  },
+);
+
+export const login = createAsyncThunk('auth/login', async (user: User) => {
+  Alert.alert(JSON.stringify(user));
+});
 
 const authSlice = createSlice({
   name: 'auth',
