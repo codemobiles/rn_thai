@@ -15,7 +15,9 @@ const defaultState: authState = {
 
 export const register = createAsyncThunk(
   'auth/register',
-  async (user: User) => {},
+  async (user: User) => {
+    AsyncStorage.setItem('account', JSON.stringify(user))
+  },
 );
 
 export const login = createAsyncThunk('auth/login', async (user: User) => {
