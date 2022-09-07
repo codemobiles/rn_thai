@@ -7,6 +7,8 @@ import AppNavigator from './src/AppNavigator';
 type Props = {};
 
 const App = (props: Props) => {
+
+  
   return (
     <View style={{flex: 1}}>
       <AppNavigator isAuthened={true} />
