@@ -4,6 +4,7 @@ import {Alert} from 'react-native';
 import {User} from '../../types/user.type';
 import {RootState} from '../store';
 import AsyncStorage from '@react-native-community/async-storage';
+import {kACCOUNT} from '../../Constants';
 
 type authState = {
   count: number;
@@ -16,7 +17,7 @@ const defaultState: authState = {
 export const register = createAsyncThunk(
   'auth/register',
   async (user: User) => {
-    AsyncStorage.setItem('account', JSON.stringify(user))
+    await AsyncStorage.setItem(kACCOUNT, JSON.stringify(user));
   },
 );
 

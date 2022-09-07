@@ -65,7 +65,10 @@ const RegisterScreen = (props: Props) => {
         <CMButton
           title="Register"
           variant="contained"
-          onPress={() => dispatch(register(user))}
+          onPress={async () => {
+            await dispatch(register(user));
+            navigation.goBack();
+          }}
         />
         <View style={{height: 8}} />
         {/* register button */}
