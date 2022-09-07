@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
   Alert,
+  StyleSheet,
 } from 'react-native';
 import React from 'react';
 import {FlatList} from 'react-native-gesture-handler';
@@ -55,13 +56,7 @@ type renderRowProp = {
   index: number;
 };
 const renderRow = ({item, index}: renderRowProp) => (
-  <TouchableOpacity
-    style={{
-      backgroundColor: '#FFF',
-      height: 270,
-      margin: 20,
-    }}
-    onPress={() => Alert.alert(item.title)}>
+  <TouchableOpacity style={styles.card} onPress={() => Alert.alert(item.title)}>
     {/* avatar and title */}
     <View style={{flexDirection: 'row', margin: 16}}>
       {/* avatar */}
@@ -79,10 +74,21 @@ const renderRow = ({item, index}: renderRowProp) => (
         </Text>
       </View>
     </View>
+
+    {/* Image */}
+    <Image source={{uri: item.youtube_image}} style={{flex: 1}} />
   </TouchableOpacity>
 );
 
 export default JSONFeedScreen;
+
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: '#FFF',
+    height: 270,
+    margin: 20,
+  },
+});
 
 const renderHeader = () => (
   <View style={{alignItems: 'center'}}>
