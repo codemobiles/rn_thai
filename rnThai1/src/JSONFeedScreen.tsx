@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, ImageBackground} from 'react-native';
 import React from 'react';
 import {FlatList} from 'react-native-gesture-handler';
 import {useSelector} from 'react-redux';
@@ -25,7 +25,10 @@ const JSONFeedScreen = (props: Props) => {
   }, []);
 
   return (
-    <View style={{flex: 1}}>
+    <ImageBackground
+      style={{flex: 1}}
+      resizeMode="stretch"
+      source={require('./assets/img/gradient_bg.png')}>
       <FlatList
         style={{flex: 1}}
         data={jsonReducer.dataArray}
@@ -34,7 +37,7 @@ const JSONFeedScreen = (props: Props) => {
           <Text>{`${index + 1}. ${item.title}`}</Text>
         )}
       />
-    </View>
+    </ImageBackground>
   );
 };
 
