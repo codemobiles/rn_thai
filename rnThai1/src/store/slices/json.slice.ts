@@ -7,11 +7,13 @@ import {RootState} from '../store';
 type jsonState = {
   dataArray: Youtube[];
   isError: boolean;
+  isFetching: boolean;
 };
 
 const defaultState: jsonState = {
   dataArray: [],
   isError: false,
+  isFetching: false,
 };
 
 export const loadData = createAsyncThunk('json/loadData', async () => {
@@ -19,7 +21,7 @@ export const loadData = createAsyncThunk('json/loadData', async () => {
     'https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=songs';
 
   const result = await axios.get<YoutubeResponse>(url);
-
+  await new Promise((resolve: any) => setTimeout(resolve, 2000));
   return result.data.youtubes;
 });
 

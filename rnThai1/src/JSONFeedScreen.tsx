@@ -40,6 +40,14 @@ const JSONFeedScreen = (props: Props) => {
       style={{flex: 1, justifyContent: 'center'}}
       resizeMode="stretch"
       source={require('./assets/img/gradient_bg.png')}>
+      {jsonReducer.isFetching && (
+        <TouchableOpacity onPress={() => dispatch(loadData())}>
+          <Text style={{color: 'white', fontSize: 20, textAlign: 'center'}}>
+            Loading...
+          </Text>
+        </TouchableOpacity>
+      )}
+
       {jsonReducer.isError && (
         <TouchableOpacity onPress={() => dispatch(loadData())}>
           <Text style={{color: 'white', fontSize: 20, textAlign: 'center'}}>
