@@ -11,7 +11,11 @@ import {
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootState, useAppDispatch} from './store/store';
 import {useSelector} from 'react-redux';
-import {cameraSelector, handleCamera, handleGallery} from './store/slices/camera.slice';
+import {
+  cameraSelector,
+  handleCamera,
+  handleGallery,
+} from './store/slices/camera.slice';
 
 type RootStackParamList = {
   CameraScreen: {profileId: number; name: string};
