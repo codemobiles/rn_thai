@@ -58,7 +58,7 @@ const JSONFeedScreen = (props: Props) => {
           </Text>
         </TouchableOpacity>
       )}
-      {!jsonReducer.isError && (
+      {!jsonReducer.isError && !jsonReducer.isFetching && (
         <FlatList
           ListHeaderComponent={() => renderHeader()}
           style={{flex: 1}}
