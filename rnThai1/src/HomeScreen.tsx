@@ -20,7 +20,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {User} from './types/user.type';
 import {useSelector} from 'react-redux';
 import {RootState, useAppDispatch} from './store/store';
-import {add, authSelector, reset} from './store/slices/auth.slice';
+import {add, authSelector, login, reset} from './store/slices/auth.slice';
 
 type Props = {};
 type ScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
@@ -68,9 +68,7 @@ const HomeScreen = (props: Props) => {
         <CMButton
           title="Login"
           variant="contained"
-          onPress={() => {
-            Alert.alert(JSON.stringify(user));
-          }}
+          onPress={() => dispatch(login(user))}
         />
         <View style={{height: 8}} />
         {/* register button */}

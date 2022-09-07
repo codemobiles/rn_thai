@@ -17,8 +17,9 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from './RootNavigationParams';
 import {useSelector} from 'react-redux';
-import {authSelector} from './store/slices/auth.slice';
+import {authSelector, register} from './store/slices/auth.slice';
 import {User} from './types/user.type';
+import {useAppDispatch} from './store/store';
 
 type Props = {};
 type ScreenProp = StackNavigationProp<RootStackParamList, 'Register'>;
@@ -26,6 +27,7 @@ type ScreenProp = StackNavigationProp<RootStackParamList, 'Register'>;
 const RegisterScreen = (props: Props) => {
   const navigation = useNavigation<ScreenProp>();
   const authReducer = useSelector(authSelector);
+  const dispatch = useAppDispatch();
   let user: User = {username: '', password: ''};
 
   return (
@@ -63,9 +65,7 @@ const RegisterScreen = (props: Props) => {
         <CMButton
           title="Register"
           variant="contained"
-          onPress={() => {
-            Alert.alert(JSON.stringify(user));
-          }}
+          onPress={() => dispatch(register(user))}
         />
         <View style={{height: 8}} />
         {/* register button */}
