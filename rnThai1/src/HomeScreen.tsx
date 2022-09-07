@@ -68,7 +68,9 @@ const HomeScreen = (props: Props) => {
         <CMButton
           title="Login"
           variant="contained"
-          onPress={() => dispatch(login(user))}
+          onPress={() => {
+            dispatch(login(user));
+          }}
         />
         <View style={{height: 8}} />
         {/* register button */}

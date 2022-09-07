@@ -4,7 +4,7 @@ import {Alert} from 'react-native';
 import {User} from '../../types/user.type';
 import {RootState} from '../store';
 import AsyncStorage from '@react-native-community/async-storage';
-import {kACCOUNT} from '../../Constants';
+import {kACCOUNT, kAUTHEN_SUCCESS, kYES} from '../../Constants';
 
 type authState = {
   count: number;
@@ -22,7 +22,21 @@ export const register = createAsyncThunk(
 );
 
 export const login = createAsyncThunk('auth/login', async (user: User) => {
-  Alert.alert(JSON.stringify(user));
+  const regUser = await AsyncStorage.getItem(kACCOUNT);
+
+  if (!regUser) {
+    throw new Error('Invalid Account - Never registered');
+  }
+
+  const regUserObj = JSON.parse(regUser) as User;
+  if (
+    regUserObj.username !== user.username ||
+    regUserObj.password !== user.password
+  ) {
+    throw new Error('Invalid Username or Password');
+  }
+
+  await AsyncStorage.setItem(kAUTHEN_SUCCESS, kYES);
 });
 
 const authSlice = createSlice({
