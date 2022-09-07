@@ -5,7 +5,8 @@ import React from 'react';
 import {View} from 'react-native';
 
 import AppNavigator from './src/AppNavigator';
-import { kAUTHEN_SUCCESS, kYES } from './src/Constants';
+import {kAUTHEN_SUCCESS, kYES} from './src/Constants';
+import LoadingScreen from './src/LoadingScreen';
 
 // HOC
 type Props = {};
@@ -24,11 +25,18 @@ const App = (props: Props) => {
     if (_isAuthened && _isAuthened === kYES) {
       setIsAuthened(true);
     }
+
+    await new Promise((resolve: any) => setTimeout(resolve, 1000));
+    setIsAuthenticating(false);
+  }
+
+  if (isAuthenticating) {
+    return <LoadingScreen />;
   }
 
   return (
     <View style={{flex: 1}}>
-      <AppNavigator isAuthened={true} />
+      <AppNavigator isAuthened={isAuthened} />
     </View>
   );
 };
