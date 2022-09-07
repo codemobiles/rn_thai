@@ -6,6 +6,7 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -15,6 +16,7 @@ import {
   cameraSelector,
   handleCamera,
   handleGallery,
+  handleUpload,
 } from './store/slices/camera.slice';
 
 type RootStackParamList = {
@@ -78,7 +80,16 @@ const CameraScreen: React.FC<CameraScreenProps> = () => {
             resizeMode="contain"
           />
 
-          <TouchableOpacity onPress={() => {}} style={styles.upload_button}>
+          <TouchableOpacity
+            onPress={async () => {
+              const result = await dispatch(handleUpload());
+              if (handleUpload.fulfilled.match(result)) {
+                Alert.alert('Success');
+              } else {
+                Alert.alert('Error');
+              }
+            }}
+            style={styles.upload_button}>
             <Text style={styles.text}>UPLOAD</Text>
           </TouchableOpacity>
         </>
