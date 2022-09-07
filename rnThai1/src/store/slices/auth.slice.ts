@@ -3,6 +3,7 @@ import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {Alert} from 'react-native';
 import {User} from '../../types/user.type';
 import {RootState} from '../store';
+import AsyncStorage from '@react-native-community/async-storage';
 
 type authState = {
   count: number;
@@ -14,9 +15,7 @@ const defaultState: authState = {
 
 export const register = createAsyncThunk(
   'auth/register',
-  async (user: User) => {
-    Alert.alert(JSON.stringify(user));
-  },
+  async (user: User) => {},
 );
 
 export const login = createAsyncThunk('auth/login', async (user: User) => {
