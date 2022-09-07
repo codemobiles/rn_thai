@@ -62,7 +62,19 @@ const renderRow = ({item, index}: renderRowProp) => (
       margin: 20,
     }}
     onPress={() => Alert.alert(item.title)}>
-    <Text>{item.title}</Text>
+    {/* avatar and title */}
+    <View style={{flexDirection: 'row', margin: 16}}>
+      {/* avatar */}
+      <Image
+        source={{uri: item.avatar_image}}
+        style={{height: 50, width: 50, borderRadius: 25}}
+      />
+      {/* title and subtitle */}
+      <View>
+        <Text>{item.title}</Text>
+        <Text>{item.subtitle}</Text>
+      </View>
+    </View>
   </TouchableOpacity>
 );
 
