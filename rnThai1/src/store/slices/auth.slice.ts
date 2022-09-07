@@ -8,6 +8,7 @@ import {kACCOUNT, kAUTHEN_SUCCESS, kYES} from '../../Constants';
 
 type authState = {
   count: number;
+  errorMsg?: string | null;
 };
 
 const defaultState: authState = {
@@ -50,7 +51,14 @@ const authSlice = createSlice({
       state.count = action.payload;
     },
   },
-  extraReducers: builder => {},
+  extraReducers: builder => {
+    builder.addCase(login.fulfilled, (state, action) => {
+      state.errorMsg = null;
+    });
+    builder.addCase(login.rejected, (state, action) => {
+      state.errorMsg = action.error.message;
+    });
+  },
 });
 
 export const {add, reset} = authSlice.actions;
