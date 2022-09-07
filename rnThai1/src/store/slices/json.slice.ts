@@ -11,7 +11,7 @@ type jsonState = {
 
 const defaultState: jsonState = {
   dataArray: [],
-  isError: true,
+  isError: false,
 };
 
 export const loadData = createAsyncThunk('json/loadData', async () => {
@@ -30,9 +30,11 @@ const jsonSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(loadData.fulfilled, (state, action) => {
       state.dataArray = action.payload;
+      state.isError = false;
     });
     builder.addCase(loadData.rejected, (state, action) => {
       state.dataArray = [];
+      state.isError = true;
     });
   },
 });
