@@ -46,8 +46,11 @@ const SuccessTab = () => (
   </Tab.Navigator>
 );
 
-const RootStack = () => (
-  <Stack.Navigator initialRouteName="Home">
+type RootStackProp = {
+  isAuthened: boolean;
+};
+const RootStack = ({isAuthened}: RootStackProp) => (
+  <Stack.Navigator initialRouteName={isAuthened ? 'Success' : 'Home'}>
     <Stack.Screen name="Home" component={HomeScreen} options={defaultOptions} />
     <Stack.Screen
       name="Register"

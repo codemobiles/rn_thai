@@ -9,7 +9,7 @@ type Props = {};
 const App = (props: Props) => {
   return (
     <View style={{flex: 1}}>
-      <AppNavigator />
+      <AppNavigator isAuthened={true} />
     </View>
   );
 };
