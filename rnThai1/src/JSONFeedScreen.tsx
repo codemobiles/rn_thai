@@ -56,17 +56,16 @@ type renderRowProp = {
   index: number;
 };
 const renderRow = ({item, index}: renderRowProp) => (
-  <TouchableOpacity style={styles.card} onPress={() => Alert.alert(item.title)}>
+  <TouchableOpacity
+    style={styles.listCard}
+    onPress={() => Alert.alert(item.title)}>
     {/* avatar and title */}
-    <View style={{flexDirection: 'row', margin: 16}}>
+    <View style={styles.listCardView}>
       {/* avatar */}
-      <Image
-        source={{uri: item.avatar_image}}
-        style={{height: 50, width: 50, borderRadius: 25}}
-      />
+      <Image source={{uri: item.avatar_image}} style={styles.listAvatar} />
       {/* title and subtitle */}
-      <View style={{flex: 1, marginLeft: 16}}>
-        <Text numberOfLines={1} ellipsizeMode="tail">
+      <View style={styles.listTitleSubtitleContainer}>
+        <Text numberOfLines={1} ellipsizeMode="tail" style={styles.listTitle}>
           {item.title}
         </Text>
         <Text numberOfLines={1} ellipsizeMode="tail">
@@ -76,7 +75,7 @@ const renderRow = ({item, index}: renderRowProp) => (
     </View>
 
     {/* Image */}
-    <Image source={{uri: item.youtube_image}} style={{flex: 1}} />
+    <Image source={{uri: item.youtube_image}} style={styles.listYoutbeImage} />
   </TouchableOpacity>
 );
 
