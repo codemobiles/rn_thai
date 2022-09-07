@@ -6,10 +6,12 @@ import {RootState} from '../store';
 
 type jsonState = {
   dataArray: Youtube[];
+  isError: boolean;
 };
 
 const defaultState: jsonState = {
   dataArray: [],
+  isError: true,
 };
 
 export const loadData = createAsyncThunk('json/loadData', async () => {

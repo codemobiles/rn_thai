@@ -37,16 +37,19 @@ const JSONFeedScreen = (props: Props) => {
 
   return (
     <ImageBackground
-      style={{flex: 1}}
+      style={{flex: 1, justifyContent: 'center'}}
       resizeMode="stretch"
       source={require('./assets/img/gradient_bg.png')}>
-      <FlatList
-        ListHeaderComponent={() => renderHeader()}
-        style={{flex: 1}}
-        data={jsonReducer.dataArray}
-        keyExtractor={item => item.id}
-        renderItem={renderRow}
-      />
+      {jsonReducer.isError && <Text>Something went wrong...</Text>}
+      {!jsonReducer.isError && (
+        <FlatList
+          ListHeaderComponent={() => renderHeader()}
+          style={{flex: 1}}
+          data={jsonReducer.dataArray}
+          keyExtractor={item => item.id}
+          renderItem={renderRow}
+        />
+      )}
     </ImageBackground>
   );
 };
