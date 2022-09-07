@@ -46,7 +46,27 @@ const cameraSlice = createSlice({
   name: 'camera',
   initialState: defaultState,
   reducers: {},
-  extraReducers: builder => {},
+  extraReducers: builder => {
+    builder.addCase(handleCamera.fulfilled, (state, action) => {
+      const _image = action.payload;
+
+      state.image = {
+        uri: _image.path,
+        width: _image.width,
+        height: _image.height,
+      };
+    });
+
+    builder.addCase(handleGallery.fulfilled, (state, action) => {
+      const _image = action.payload;
+
+      state.image = {
+        uri: _image.path,
+        width: _image.width,
+        height: _image.height,
+      };
+    });
+  },
 });
 
 export default cameraSlice.reducer;
