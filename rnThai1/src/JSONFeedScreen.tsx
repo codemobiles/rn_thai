@@ -41,9 +41,14 @@ const JSONFeedScreen = (props: Props) => {
       resizeMode="stretch"
       source={require('./assets/img/gradient_bg.png')}>
       {jsonReducer.isError && (
-        <Text style={{color: 'white', fontSize: 20, textAlign: 'center'}}>
-          Something went wrong...
-        </Text>
+        <TouchableOpacity onPress={() => dispatch(loadData())}>
+          <Text style={{color: 'white', fontSize: 20, textAlign: 'center'}}>
+            Something went wrong
+          </Text>
+          <Text style={{color: 'white', fontSize: 20, textAlign: 'center'}}>
+            Tap to Retry
+          </Text>
+        </TouchableOpacity>
       )}
       {!jsonReducer.isError && (
         <FlatList
