@@ -100,7 +100,10 @@ const styles = StyleSheet.create({
   previewImage: {flex: 1, width: '100%', marginBottom: 20},
   buttonSection: {
     flexDirection: 'row',
+    paddingTop: 8,
+    borderRadius: 8,
     justifyContent: 'space-evenly',
+    backgroundColor: '#3333',
   },
   upload_button: {
     borderRadius: 15,
