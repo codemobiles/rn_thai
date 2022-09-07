@@ -38,10 +38,10 @@ const HomeScreen = (props: Props) => {
       style={{flex: 1}}
       resizeMode="stretch"
       source={require('./assets/img/gradient_bg.png')}>
-      <TouchableOpacity onPress={() => dispatch(add())}>
+      {/* <TouchableOpacity onPress={() => dispatch(add())}>
         <Text>{'Count: ' + authReducer.count}</Text>
       </TouchableOpacity>
-      <Button title="reset" onPress={() => dispatch(reset(-1))} />
+      <Button title="reset" onPress={() => dispatch(reset(-1))} /> */}
 
       <View
         style={{

@@ -25,6 +25,7 @@ type ScreenProp = StackNavigationProp<RootStackParamList, 'Register'>;
 const RegisterScreen = (props: Props) => {
   const navigation = useNavigation<ScreenProp>();
   const authReducer = useSelector(authSelector);
+  const user: User = {username: '', password: ''};
 
   return (
     <ImageBackground
