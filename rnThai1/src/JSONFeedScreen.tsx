@@ -1,4 +1,13 @@
-import {View, Text, ImageBackground, Image} from 'react-native';
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable react-native/no-inline-styles */
+import {
+  View,
+  Text,
+  ImageBackground,
+  Image,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 import React from 'react';
 import {FlatList} from 'react-native-gesture-handler';
 import {useSelector} from 'react-redux';
@@ -46,9 +55,15 @@ type renderRowProp = {
   index: number;
 };
 const renderRow = ({item, index}: renderRowProp) => (
-  <Text style={{fontSize: 30, margin: 10, backgroundColor: 'white'}}>{`${
-    index + 1
-  }. ${item.title}`}</Text>
+  <TouchableOpacity
+    style={{
+      backgroundColor: '#FFF',
+      height: 270,
+      margin: 20,
+    }}
+    onPress={() => Alert.alert(item.title)}>
+    <Text>{item.title}</Text>
+  </TouchableOpacity>
 );
 
 export default JSONFeedScreen;
