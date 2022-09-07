@@ -18,6 +18,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from './RootNavigationParams';
 import {useSelector} from 'react-redux';
 import {authSelector} from './store/slices/auth.slice';
+import {User} from './types/user.type';
 
 type Props = {};
 type ScreenProp = StackNavigationProp<RootStackParamList, 'Register'>;
@@ -25,7 +26,7 @@ type ScreenProp = StackNavigationProp<RootStackParamList, 'Register'>;
 const RegisterScreen = (props: Props) => {
   const navigation = useNavigation<ScreenProp>();
   const authReducer = useSelector(authSelector);
-  const user: User = {username: '', password: ''};
+  let user: User = {username: '', password: ''};
 
   return (
     <ImageBackground
@@ -41,9 +42,22 @@ const RegisterScreen = (props: Props) => {
           borderRadius: 15,
         }}>
         {/* username  */}
-        <CMEntry hint="Username" icon="user" />
+        <CMEntry
+          hint="Username"
+          icon="user"
+          onChangeText={text => {
+            user = {...user, username: text};
+          }}
+        />
         {/* password */}
-        <CMEntry hint="Password" icon="lock" secureTextEntry />
+        <CMEntry
+          hint="Password"
+          icon="lock"
+          secureTextEntry
+          onChangeText={text => {
+            user = {...user, password: text};
+          }}
+        />
         <View style={{height: 8}} />
         {/* login button */}
         <CMButton
