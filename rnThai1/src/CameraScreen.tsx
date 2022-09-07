@@ -11,6 +11,7 @@ import {
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useAppDispatch} from './store/store';
 import {useSelector} from 'react-redux';
+import {handleCamera, handleGallery} from './store/slices/camera.slice';
 
 type RootStackParamList = {
   CameraScreen: {profileId: number; name: string};
@@ -41,17 +42,23 @@ const CameraScreen: React.FC<CameraScreenProps> = () => {
       {/* Buttons section */}
       <View style={styles.buttonSection}>
         {/* CAMERA */}
-        <TouchableOpacity onPress={() => {}} style={styles.button}>
+        <TouchableOpacity
+          onPress={() => dispatch(handleCamera())}
+          style={styles.button}>
           <Text style={styles.text}>CAMERA</Text>
         </TouchableOpacity>
 
         {/* CAMERA  + CROP*/}
-        <TouchableOpacity onPress={() => {}} style={styles.button}>
+        <TouchableOpacity
+          onPress={() => dispatch(handleCamera())}
+          style={styles.button}>
           <Text style={styles.text}>CAMERA+CROP</Text>
         </TouchableOpacity>
 
         {/* GALLERY + CROP*/}
-        <TouchableOpacity onPress={() => {}} style={styles.button}>
+        <TouchableOpacity
+          onPress={() => dispatch(handleGallery())}
+          style={styles.button}>
           <Text style={styles.text}>GALLERY</Text>
         </TouchableOpacity>
       </View>
