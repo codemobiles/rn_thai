@@ -30,6 +30,9 @@ const JSONFeedScreen = (props: Props) => {
       resizeMode="stretch"
       source={require('./assets/img/gradient_bg.png')}>
       <FlatList
+        ListHeaderComponent={() => (
+          <Text style={{fontSize: 30}}>I am Header</Text>
+        )}
         style={{flex: 1}}
         data={jsonReducer.dataArray}
         keyExtractor={item => item.id}
