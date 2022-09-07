@@ -33,10 +33,15 @@ const jsonSlice = createSlice({
     builder.addCase(loadData.fulfilled, (state, action) => {
       state.dataArray = action.payload;
       state.isError = false;
+      state.isFetching = false;
     });
     builder.addCase(loadData.rejected, (state, action) => {
       state.dataArray = [];
       state.isError = true;
+      state.isFetching = false;
+    });
+    builder.addCase(loadData.pending, (state, action) => {
+      state.isFetching = true;
     });
   },
 });
