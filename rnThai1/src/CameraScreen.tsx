@@ -43,14 +43,14 @@ const CameraScreen: React.FC<CameraScreenProps> = () => {
       <View style={styles.buttonSection}>
         {/* CAMERA */}
         <TouchableOpacity
-          onPress={() => dispatch(handleCamera())}
+          onPress={() => dispatch(handleCamera(false))}
           style={styles.button}>
           <Text style={styles.text}>CAMERA</Text>
         </TouchableOpacity>
 
         {/* CAMERA  + CROP*/}
         <TouchableOpacity
-          onPress={() => dispatch(handleCamera())}
+          onPress={() => dispatch(handleCamera(true))}
           style={styles.button}>
           <Text style={styles.text}>CAMERA+CROP</Text>
         </TouchableOpacity>

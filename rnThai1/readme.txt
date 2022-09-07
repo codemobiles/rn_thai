@@ -30,7 +30,7 @@ missingDimensionStrategy 'react-native-camera', 'general'
 https://oblador.github.io/react-native-vector-icons/
 
 # Add when you need to do part of camemra
-yarn add react-native-youtube react-native-image-crop-picker react-native-onesignal
+yarn add react-native-image-crop-picker 
 
 - replace App.tsx
 - copy src/**
