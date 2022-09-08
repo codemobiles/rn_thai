@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState, useEffect} from 'react';
 import {
@@ -8,6 +9,7 @@ import {
   Dimensions,
   TouchableOpacity,
   Platform,
+  Alert,
 } from 'react-native';
 import MapView, {
   LatLng,
@@ -47,15 +49,23 @@ const Tab1Screen = (props: Props) => {
 
   function loadMarkers() {}
 
+  async function addMarker(coordinate: LatLng) {
+    setMarkers([...markers, coordinate]);
+  }
+
   return (
     <View style={styles.container}>
       <MapView
         provider={PROVIDER_GOOGLE}
-        onPress={e => {}}
+        onPress={e => addMarker(e.nativeEvent.coordinate)}
         initialRegion={region}
         style={styles.map}
         mapType="standard" // NORMAL, SATELLITE, HYBRID
-      ></MapView>
+      >
+        {markers.map(position => (
+          <Marker key={Math.random().toString()} coordinate={position} />
+        ))}
+      </MapView>
 
       <Image
         resizeMode="contain"
