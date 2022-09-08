@@ -10,9 +10,10 @@ import {
 import TabQRcode from './TabQRcode';
 import ScannerScreen from './ScannerScreen';
 import TabScanner from './TabScanner';
+import {RootStackParamList, RootTabParamList} from './RootNavigationParams';
 
-const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<RootTabParamList>();
 
 const tab1_Option: BottomTabNavigationOptions = {
   tabBarLabel: 'QRcode',
@@ -49,5 +50,19 @@ const tab2_Option: BottomTabNavigationOptions = {
     />
   ),
 };
+
+const MainTab = () => (
+  <Tab.Navigator initialRouteName="QRCodeTab">
+    <Tab.Screen name="QRCodeTab" component={TabQRcode} />
+    <Tab.Screen name="ScannerTab" component={TabScanner} />
+  </Tab.Navigator>
+);
+
+const RootStack = () => (
+  <Stack.Navigator initialRouteName="MainTab">
+    <Stack.Screen name="MainTab" component={MainTab} />
+    <Stack.Screen name="Scanner" component={ScannerScreen} />
+  </Stack.Navigator>
+);
 
 export default RootStack;
