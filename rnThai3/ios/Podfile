@@ -4,7 +4,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '12.4'
 install! 'cocoapods', :deterministic_uuids => false
 
-target 'rnThai2' do
+target 'rnThai3' do
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -26,18 +26,10 @@ target 'rnThai2' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'rnThai2Tests' do
+  target 'rnThai3Tests' do
     inherit! :complete
     # Pods for testing
   end
-
-  permissions_path = '../node_modules/react-native-permissions/ios'
-  pod 'Permission-Contacts', :path => "#{permissions_path}/Contacts"
-  pod 'Permission-Microphone', :path => "#{permissions_path}/Microphone"
-  pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications"
-  pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary"
-  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
-
 
   post_install do |installer|
     react_native_post_install(
