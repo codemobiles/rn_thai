@@ -62,8 +62,62 @@ const Tab1Screen = (props: Props) => {
         style={styles.map}
         mapType="standard" // NORMAL, SATELLITE, HYBRID
       >
-        {markers.map(position => (
-          <Marker key={Math.random().toString()} coordinate={position} />
+        {markers.map(coordinate => (
+          <Marker key={JSON.stringify(coordinate)} coordinate={coordinate}>
+            <View
+              style={{
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Image
+                source={require('./assets/img/cmdev_icon.png')}
+                style={{
+                  height: 30,
+                  width: 30,
+                  borderColor: 'white',
+                  borderRadius: 15,
+                  borderWidth: 2,
+                }}
+              />
+              <Text
+                style={{
+                  color: '#FFF',
+                  fontSize: 12,
+                  backgroundColor: '#0007',
+                  borderRadius: 3,
+                }}>
+                {coordinate.latitude.toFixed(2)}°,{' '}
+                {coordinate.longitude.toFixed(2)}°{' '}
+              </Text>
+            </View>
+
+            <Callout tooltip style={styles.customView}>
+              <CustomCallout>
+                <TouchableOpacity
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                  }}>
+                  {/** Showing image in android is not possible now (Lib. Bug) */}
+                  {Platform.OS === 'ios' ? (
+                    <Image
+                      resizeMode="cover"
+                      source={require('./assets/img/cmdev_icon.png')}
+                      style={{height: 20, width: 20, marginRight: 8}}
+                    />
+                  ) : null}
+
+                  <Text style={{fontWeight: 'bold'}}>Pos: </Text>
+                  <Text>
+                    {parseFloat(coordinate.latitude.toString()).toFixed(2)} °,{' '}
+                    {parseFloat(coordinate.longitude.toString()).toFixed(2)} °
+                  </Text>
+                </TouchableOpacity>
+              </CustomCallout>
+            </Callout>
+          </Marker>
         ))}
       </MapView>
 
