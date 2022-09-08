@@ -1,5 +1,9 @@
 npx react-native init cmMapTS --template react-native-template-typescript
 
+# Get Google API Key
+https://console.cloud.google.com/apis/dashboard
+
+
 # common steps
 yarn add react-native-elements react-native-vector-icons react-native-safe-area-context
 yarn add @react-navigation/native @react-navigation/stack @react-navigation/bottom-tabs
