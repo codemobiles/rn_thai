@@ -33,6 +33,20 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 type Props = {};
 
 const Tab1Screen = (props: Props) => {
+  const [markers, setMarkers] = useState<LatLng[]>([]);
+  const [region, setRegion] = useState<Region>({
+    latitude: LATITUDE,
+    longitude: LONGITUDE,
+    latitudeDelta: LATITUDE_DELTA,
+    longitudeDelta: LONGITUDE_DELTA,
+  });
+
+  useEffect(() => {
+    loadMarkers();
+  }, []);
+
+  function loadMarkers() {}
+
   return (
     <View style={{flex: 1}}>
       <MapView
