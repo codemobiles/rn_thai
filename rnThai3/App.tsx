@@ -38,7 +38,7 @@ const App: React.FunctionComponent<AppProps> = props => {
           labels: ['January', 'February', 'March', 'April', 'May', 'June'],
           datasets: [
             {
-              color: (opacity = 1) => `rgba(255, 0, 255, ${opacity})`,
+              color: (opacity = 1) => `rgba(25, 0, 255, ${opacity})`,
               data: dummyData1,
             },
 
@@ -54,7 +54,6 @@ const App: React.FunctionComponent<AppProps> = props => {
         yAxisSuffix="k"
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
-          backgroundColor: '#e26a00',
           backgroundGradientFrom: '#333',
           backgroundGradientTo: '#ffa726',
           decimalPlaces: 2, // optional, defaults to 2dp
