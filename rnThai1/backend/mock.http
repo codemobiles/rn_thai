@@ -1,0 +1,5 @@
+### google
+GET http://google.com HTTP/1.1
+
+### register
+GET http://localhost:3000/register?username=lek&password=1234 HTTP/1.1

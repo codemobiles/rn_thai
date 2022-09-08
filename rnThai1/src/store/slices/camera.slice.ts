@@ -29,7 +29,7 @@ export const handleUpload = createAsyncThunk(
       name: 'testPhotoName.jpg',
     });
 
-    let result = await axios.post('http://192.168.11.197:3000/uploads', data, {
+    let result = await axios.post('http://172.20.10.8:3000/uploads', data, {
       headers: {'Content-Type': 'multipart/form-data'},
     });
     console.log(JSON.stringify(result.data));
