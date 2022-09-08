@@ -48,28 +48,47 @@ const Tab1Screen = (props: Props) => {
   function loadMarkers() {}
 
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.container}>
       <MapView
-        style={{flex: 1}}
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}>
-        <Marker
-          coordinate={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-          }}>
-          <Image
-            source={require('./assets/img/cmdev_icon.png')}
-            style={{width: 30, height: 30}}
-          />
-        </Marker>
-      </MapView>
+        provider={PROVIDER_GOOGLE}
+        onPress={e => {}}
+        initialRegion={region}
+        style={styles.map}
+        mapType="standard" // NORMAL, SATELLITE, HYBRID
+      ></MapView>
+
+      <Image
+        resizeMode="contain"
+        style={{
+          width: '100%',
+          height: 100,
+          backgroundColor: '#000000',
+          marginTop: 10,
+        }}
+        source={require('./assets/img/banner_react_map.png')}
+      />
     </View>
   );
 };
 
 export default Tab1Screen;
+
+const styles = StyleSheet.create({
+  container: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'flex-end',
+    height: '100%',
+    width: '100%',
+  },
+  banner: {
+    height: 80,
+    width: '100%',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  customView: {
+    width: Platform.OS == 'ios' ? 190 : 160,
+    height: 100,
+  },
+});
