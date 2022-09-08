@@ -33,7 +33,7 @@ const TabScanner: React.FunctionComponent<TabScannerProps> = props => {
   };
 
   const onClickScan = () => {
-    navigation.navigate('Scanner');
+    navigation.navigate('Scanner', {token: '1234'});
   };
 
   return (

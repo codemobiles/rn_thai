@@ -1,6 +1,6 @@
 export type RootStackParamList = {
   MainTab: undefined;
-  Scanner: undefined;
+  Scanner: undefined | {token: string};
 };
 
 export type RootTabParamList = {
