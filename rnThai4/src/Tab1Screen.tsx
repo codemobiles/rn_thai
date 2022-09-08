@@ -61,8 +61,12 @@ const Tab1Screen = (props: Props) => {
           coordinate={{
             latitude: 37.78825,
             longitude: -122.4324,
-          }}
-        />
+          }}>
+          <Image
+            source={require('./assets/img/cmdev_icon.png')}
+            style={{width: 30, height: 30}}
+          />
+        </Marker>
       </MapView>
     </View>
   );
