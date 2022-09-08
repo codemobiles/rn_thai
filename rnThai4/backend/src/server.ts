@@ -22,4 +22,4 @@ app.post('/record_position', async (req, res) => {
 app.get('/position', async (req, res) => {
   res.json(dataArray);
 });
-app.listen(3000, () => console.log('server is running..'));
+app.listen(3001, () => console.log('server is running..'));

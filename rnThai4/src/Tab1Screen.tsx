@@ -22,7 +22,7 @@ import CustomCallout from './CustomCallout';
 import {Callout} from 'react-native-maps';
 
 const {width, height} = Dimensions.get('window');
-const ipAddress = '192.168.1.178';
+const ipAddress = '10.10.112.231';
 import Axios from 'axios';
 
 const ASPECT_RATIO = width / height;
@@ -47,7 +47,14 @@ const Tab1Screen = (props: Props) => {
     loadMarkers();
   }, []);
 
-  function loadMarkers() {}
+  async function loadMarkers() {
+    try {
+      let result = await Axios.get<LatLng[]>(
+        `http://${ipAddress}:3001/position`,
+      );
+      setMarkers(result.data);
+    } catch (e) {}
+  }
 
   async function addMarker(coordinate: LatLng) {
     console.log(JSON.stringify(coordinate));
