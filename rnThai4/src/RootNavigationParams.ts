@@ -1,8 +1,8 @@
 export type RootStackParamList = {
-  Home: undefined;
+  Home: undefined;  
 };
 
 export type RootTabParamList = {
   Tab1: undefined;
-  Tab2: undefined;
+  Tab2: undefined;  
 };
