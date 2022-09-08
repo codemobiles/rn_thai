@@ -50,7 +50,20 @@ const Tab1Screen = (props: Props) => {
   function loadMarkers() {}
 
   async function addMarker(coordinate: LatLng) {
+    console.log(JSON.stringify(coordinate));
+
+    setRegion({...region, ...coordinate});
     setMarkers([...markers, coordinate]);
+
+    try {
+      let result = await Axios.post(
+        `http://${ipAddress}:3001/record_position`,
+        coordinate,
+      );
+      console.log(JSON.stringify(result));
+    } catch (e) {
+      console.log(JSON.stringify(e));
+    }
   }
 
   return (
