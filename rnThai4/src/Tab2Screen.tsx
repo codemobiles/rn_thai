@@ -54,13 +54,25 @@ const Tab2Screen = () => {
     };
   });
 
+  function startLocationTracking() {
+    watchId = Geolocation.watchPosition(
+      position => {},
+      error => {},
+      {
+        enableHighAccuracy: true, // false for testing in building
+        maximumAge: 5000,
+        timeout: 5000,
+      },
+    );
+  }
+
   async function requestLocationPermission() {
     const checkLocationPermission = await PermissionsAndroid.check(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
     );
 
     if (checkLocationPermission) {
-      // startLocationTracking();
+      startLocationTracking();
     } else {
       try {
         const granted = await PermissionsAndroid.request(
@@ -74,7 +86,7 @@ const Tab2Screen = () => {
           },
         );
         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          // startLocationTracking();
+          startLocationTracking();
         } else {
           // "You don't have access for the location"
         }
