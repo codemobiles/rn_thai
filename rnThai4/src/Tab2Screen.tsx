@@ -56,8 +56,16 @@ const Tab2Screen = () => {
 
   function startLocationTracking() {
     watchId = Geolocation.watchPosition(
-      position => {},
-      error => {},
+      position => {
+        console.log(JSON.stringify(position));
+
+        coordinate.timing(position.coords).start(); // the coordinate is made from AnimatedRegion
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude);
+      },
+      error => {
+        console.log(JSON.stringify(error));
+      },
       {
         enableHighAccuracy: true, // false for testing in building
         maximumAge: 5000,
