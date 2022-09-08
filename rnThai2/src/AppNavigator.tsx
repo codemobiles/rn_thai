@@ -52,15 +52,25 @@ const tab2_Option: BottomTabNavigationOptions = {
 };
 
 const MainTab = () => (
-  <Tab.Navigator initialRouteName="QRCodeTab">
-    <Tab.Screen name="QRCodeTab" component={TabQRcode} />
-    <Tab.Screen name="ScannerTab" component={TabScanner} />
+  <Tab.Navigator
+    initialRouteName="QRCodeTab"
+    screenOptions={{headerShown: false}}>
+    <Tab.Screen name="QRCodeTab" component={TabQRcode} options={tab1_Option} />
+    <Tab.Screen
+      name="ScannerTab"
+      component={TabScanner}
+      options={tab2_Option}
+    />
   </Tab.Navigator>
 );
 
 const RootStack = () => (
   <Stack.Navigator initialRouteName="MainTab">
-    <Stack.Screen name="MainTab" component={MainTab} />
+    <Stack.Screen
+      name="MainTab"
+      component={MainTab}
+      options={{headerShown: false}}
+    />
     <Stack.Screen name="Scanner" component={ScannerScreen} />
   </Stack.Navigator>
 );
