@@ -44,11 +44,15 @@ gradlew assembleRelease (for windows)
 ./android/app/build/outputs/apk/release
  
 
- Make App Icon
+ Make App Icon (Android)
  https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html
 
- sudo react-native-rename "CMAuthen" -b com.codemobiles.rn.cmauthen
- adb logcat *:S ReactNative:V ReactNativeJS:V 
+ Make App Icon (IOS)
+ https://appicon.co/#image-sets
+
+# Rename app package
+npx react-native-rename "CMAuthen" -b com.codemobiles.rn.cmauthen
+adb logcat *:S ReactNative:V ReactNativeJS:V 
 
 
 launcher screen

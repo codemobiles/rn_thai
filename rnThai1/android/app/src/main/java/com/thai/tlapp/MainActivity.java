@@ -1,4 +1,4 @@
-package com.rnthai1;
+package com.thai.tlapp;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -12,7 +12,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "rnThai1";
+    return "TLApp";
   }
 
   /**
