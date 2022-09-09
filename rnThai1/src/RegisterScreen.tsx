@@ -45,6 +45,7 @@ const RegisterScreen = (props: Props) => {
         }}>
         {/* username  */}
         <CMEntry
+          autoCapitalize="none"
           hint="Username"
           icon="user"
           onChangeText={text => {

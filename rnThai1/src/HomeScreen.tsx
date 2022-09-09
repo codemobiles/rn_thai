@@ -52,6 +52,7 @@ const HomeScreen = (props: Props) => {
         }}>
         {/* username  */}
         <CMEntry
+          autoCapitalize="none"
           hint="Username"
           onChangeText={text => setUser({...user, username: text})}
         />
