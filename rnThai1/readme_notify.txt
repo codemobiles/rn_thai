@@ -1,7 +1,6 @@
 # Install and setup
 -----------------------------
 yarn add react-native-onesignal
-ืnpx react-native link react-native-onesignal
 
 
 #2 At top app/build.gradle
