@@ -1,26 +1,16 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
-import {
-  View,
-  Text,
-  Image,
-  ImageBackground,
-  TextInput,
-  TextInputProps,
-  Button,
-  Alert,
-} from 'react-native';
+import {View, Text, Image, ImageBackground, Button, Alert} from 'react-native';
 import React, {useState} from 'react';
 import CMEntry from './Utils/CMEntry';
 import CMButton from './Utils/CMButton';
 import {StackActions, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from './RootNavigationParams';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import {User} from './types/user.type';
 import {useSelector} from 'react-redux';
-import {RootState, useAppDispatch} from './store/store';
-import {add, authSelector, login, reset} from './store/slices/auth.slice';
+import {useAppDispatch} from './store/store';
+import {authSelector, login} from './store/slices/auth.slice';
 
 type Props = {};
 type ScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;

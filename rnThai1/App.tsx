@@ -1,13 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import AsyncStorage from '@react-native-community/async-storage';
 import {StackActions, useNavigation} from '@react-navigation/native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Alert, View} from 'react-native';
 
 import AppNavigator from './src/AppNavigator';
 import {kAUTHEN_SUCCESS, kYES} from './src/Constants';
 import LoadingScreen from './src/LoadingScreen';
-
+import {requestNotifications, RESULTS} from 'react-native-permissions';
+import {setupPushWithAppId} from './src/PushUtil';
+import {request, PERMISSIONS} from 'react-native-permissions';
+import {setupPushNotification} from './src/PermisssionUtil';
 // HOC
 type Props = {};
 
@@ -18,6 +21,7 @@ const App = (props: Props) => {
 
   React.useEffect(() => {
     checkSession();
+    setupPushNotification();
   });
 
   async function checkSession() {
