@@ -10,7 +10,7 @@ import LoadingScreen from './src/LoadingScreen';
 import {requestNotifications, RESULTS} from 'react-native-permissions';
 import {setupPushWithAppId} from './src/PushUtil';
 import {request, PERMISSIONS} from 'react-native-permissions';
-import {setupPushNotification} from './src/PermisssionUtil';
+import {setupPushNotification} from './src/NotificationUtil';
 // HOC
 type Props = {};
 
